@@ -7,7 +7,7 @@ I have this project running on a local server continually, and an Archive playli
 The requirements for running the script can be found in [Requirements.txt](Requirements.txt). The script relies on a Playlist_Archive.env file for the playlist URL and destination folder to store the videos in. An example for the .env file is included in the repository: [Playlist_Archive.env.example](Playlist_Archive.env.example).
 
 The program can be run locally, or in a virtual python environment, but I have it running on docker. Included is a [Dockerfile](Dockerfile) for creating the docker container. With the docker file, the container can be created and started with the following commands:
-```
+```dockerfile
 docker build . -t playlistarchiver
 docker run --name PlaylistArchiver --mount type=bind,source="D:\Youtube Archive",target=/videos --restart always playlistarchiver
 ```
