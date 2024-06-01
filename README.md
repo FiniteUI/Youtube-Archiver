@@ -11,5 +11,5 @@ The program can be run locally, or in a virtual python environment, but I have i
 docker build . -t playlistarchiver
 docker run --name PlaylistArchiver --mount type=bind,source="D:\Youtube Archive",target=/videos --restart always playlistarchiver
 ```
-
+A bind mount is created to store the video files.
 Keep in mind the paths in the commands above are for my personal set up, and would need to be changed.
