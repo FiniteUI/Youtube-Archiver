@@ -1,10 +1,12 @@
+#docker build . -t playlistarchiver
+#docker run --name PlaylistArchiver --mount type=bind,source="D:\Youtube Archive",target=/videos --restart always playlistarchiver
+
 FROM python:3.11
 
 COPY PlaylistArchiver.py .
 COPY Playlist_Archive.env .
-COPY Downloaded.dat .
+COPY requirements.txt .
 
-#RUN mkdir /videos
-RUN pip install pytube yt-dlp python-dotenv
+RUN pip install -r requirements.txt
 
-CMD ["python", "./PlaylistArchiver.py"]
+CMD ["python", "-u", "./PlaylistArchiver.py"]
