@@ -1,7 +1,7 @@
-#docker build . -t playlistarchiver
-#docker run --name PlaylistArchiver --mount type=bind,source="D:\Youtube Archive",target=/videos --restart always playlistarchiver
+#docker build --no-cache . -t playlistarchiver-image
+#docker run --name PlaylistArchiver --mount type=bind,source="D:\Youtube Archive",target=/videos --restart always playlistarchiver-image
 
-FROM python:3.11
+FROM python:3.11-slim
 
 COPY PlaylistArchiver.py .
 COPY Playlist_Archive.env .
