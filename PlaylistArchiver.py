@@ -44,7 +44,7 @@ while True:
     print(f"{len(playlist.videos)} videos currently in playlist...")
     for i in playlist.videos:
         if i.video_id not in videos:
-            print(f"Processing video {i.video_id} - {i.title}...")
+            print(f"Processing video {i.video_id}...")
             downloader.download(i.watch_url)
 
             print(f"Processing for video {i.video_id} complete.")

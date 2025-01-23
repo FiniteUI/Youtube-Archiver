@@ -2,3 +2,4 @@
 Downloaded.dat
 /Old
 *.env
+.venv/
