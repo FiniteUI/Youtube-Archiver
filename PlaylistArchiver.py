@@ -53,8 +53,8 @@ while True:
             with open(download_file, "a+") as f:
                 f.write(i.video_id)
                 f.write('\n')
-        else:
-            print(f"Video {i.video_id} already downloaded. Skipping...")
+        #else:
+            #print(f"Video {i.video_id} already downloaded. Skipping...")
 
     print(f"Processing for playlist {PLAYLIST} complete.")
     print("Process complete.")
