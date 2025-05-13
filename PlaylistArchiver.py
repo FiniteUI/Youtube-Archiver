@@ -41,20 +41,28 @@ while True:
     print(f"Loading playlist {PLAYLIST}...")
     playlist = Playlist(PLAYLIST)
 
-    print(f"{len(playlist.videos)} videos currently in playlist...")
-    for i in playlist.videos:
-        if i.video_id not in videos:
-            print(f"Processing video {i.video_id}...")
-            downloader.download(i.watch_url)
+    #for some reason accessing playlist.videos randomly throws an error
+    #but then the next time it will process fine
+    #just adding this to stop the program from crashing
+    try:
+        print(f"{len(playlist.videos)} videos currently in playlist...")
+    
+        for i in playlist.videos:
+            if i.video_id not in videos:
+                print(f"Processing video {i.video_id}...")
+                downloader.download(i.watch_url)
 
-            print(f"Processing for video {i.video_id} complete.")
-            
-            #write download to download file
-            with open(download_file, "a+") as f:
-                f.write(i.video_id)
-                f.write('\n')
-        #else:
-            #print(f"Video {i.video_id} already downloaded. Skipping...")
+                print(f"Processing for video {i.video_id} complete.")
+                
+                #write download to download file
+                with open(download_file, "a+") as f:
+                    f.write(i.video_id)
+                    f.write('\n')
+            #else:
+                #print(f"Video {i.video_id} already downloaded. Skipping...")
+
+    except KeyError as e:
+        print(f'Error on key {e}')
 
     print(f"Processing for playlist {PLAYLIST} complete.")
     print("Process complete.")
